@@ -1,10 +1,10 @@
-import { Component } from "react";
+import React from "react";
 
-import MenuBar from "./Menubar";
+import MenuBar from "./MenuBar";
 import AddressList from "../AddressList";
 import AddressForm from "../AddressForm";
 
-const AddressPage = props => (
+const AddressPage = () => (
   <div>
     <MenuBar />
     <AddressList />
