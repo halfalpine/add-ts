@@ -1,6 +1,6 @@
-import React, { Component } from "react";
+import * as React from "react";
 
-class AddressForm extends Component {
+class AddressForm extends React.Component {
   render() {
     return <div>This is the address form.</div>;
   }

@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 
 const MenuBar = () => <div>This is the menu bar.</div>;
 

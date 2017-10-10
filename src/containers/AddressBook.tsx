@@ -1,8 +1,8 @@
-import React, { Component } from "react";
+import * as React from "react";
 
 import AddressPage from "../components/AddressPage";
 
-class AddressBook extends Component {
+class AddressBook extends React.Component {
   constructor() {
     super();
     this.state = {
