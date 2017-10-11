@@ -1,8 +1,20 @@
 import * as React from "react";
 
+import Entry from "../models/model";
 import AddressPage from "../components/AddressPage";
 
-class AddressBook extends React.Component {
+interface Entry {
+  firstName: string;
+  lastName: string;
+  mobilePhone: number;
+  nickName: string;
+}
+
+interface State {
+  addresses: Entry[];
+}
+
+class AddressBook extends React.Component<{}, State> {
   constructor() {
     super();
     this.state = {
@@ -10,25 +22,26 @@ class AddressBook extends React.Component {
     };
 
     this.addAddress = this.addAddress.bind(this);
-    this.editAddress = this.editAddress.bind(this);
-    this.removeAddress = this.removeAddress.bind(this);
+    // this.editAddress = this.editAddress.bind(this);
+    // this.removeAddress = this.removeAddress.bind(this);
   }
 
-  addAddress() {}
+  private addAddress(entry: Entry): void {
+    this.setState({
+      addresses: this.state.addresses.concat(entry)
+    });
+  }
 
-  editAddress() {}
+  //   editAddress(): void {
+  //     this.setState({});
+  //   }
 
-  removeAddress() {}
+  //   removeAddress(): void {
+  //     this.setState({});
+  //   }
 
   render() {
-    return (
-      <AddressPage
-        addAddress={this.addAddress}
-        editAddress={this.editAddress}
-        removeAddress={this.removeAddress}
-        address={this.state.addresses}
-      />
-    );
+    return <AddressPage addAddress={this.addAddress} />;
   }
 }
 
