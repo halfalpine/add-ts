@@ -13,9 +13,19 @@ class AddressBook extends React.Component<{}, State> {
     this.state = {
       addresses: [
         {
-          firstName: "Dirk",
-          lastName: "Peters",
-          nickName: "Moose"
+          firstName: "William",
+          lastName: "Shakespeare",
+          nickName: "The Bard"
+        },
+        {
+          firstName: "Johnny",
+          lastName: "Cash",
+          nickName: "The Man in Black"
+        },
+        {
+          firstName: "2 + ",
+          lastName: "2",
+          nickName: "4"
         }
       ]
     };
