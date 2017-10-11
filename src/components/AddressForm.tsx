@@ -25,10 +25,12 @@ class AddressForm extends React.Component<Props, State> {
   }
 
   handleInputChange(e: any) {
+    console.log(e);
     this.setState({ [e.target.name]: e.target.value });
   }
 
-  handleSubmitForm() {
+  handleSubmitForm(e: any) {
+    e.preventDefault();
     const { firstName, lastName, nickName } = this.state;
     const entry = {
       firstName,
@@ -36,6 +38,11 @@ class AddressForm extends React.Component<Props, State> {
       nickName
     };
     this.props.addAddress(entry);
+    this.setState({
+      firstName: "",
+      lastName: "",
+      nickName: ""
+    });
   }
 
   render() {
@@ -47,6 +54,7 @@ class AddressForm extends React.Component<Props, State> {
           <input
             type="text"
             id="firstName"
+            name="firstName"
             value={firstName}
             onChange={this.handleInputChange}
           />
@@ -56,6 +64,7 @@ class AddressForm extends React.Component<Props, State> {
           <input
             type="text"
             id="lastName"
+            name="lastName"
             value={lastName}
             onChange={this.handleInputChange}
           />
@@ -65,6 +74,7 @@ class AddressForm extends React.Component<Props, State> {
           <input
             type="text"
             id="nickName"
+            name="nickName"
             value={nickName}
             onChange={this.handleInputChange}
           />
