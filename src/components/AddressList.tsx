@@ -8,7 +8,14 @@ interface Props {
 }
 
 const AddressList: React.StatelessComponent<Props> = props => (
-  <div>This is the address list.</div>
+  <div>
+    <div>This is the address list.</div>
+    {props.addresses.map((entry: Entry) => (
+      <div>
+        {entry.firstName} {entry.lastName} aka "{entry.nickName}"
+      </div>
+    ))}
+  </div>
 );
 
 export default AddressList;

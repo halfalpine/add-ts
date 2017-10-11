@@ -15,7 +15,6 @@ class AddressBook extends React.Component<{}, State> {
         {
           firstName: "Dirk",
           lastName: "Peters",
-          mobilePhone: 5093921618,
           nickName: "Moose"
         }
       ]
