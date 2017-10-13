@@ -7,6 +7,7 @@ import AddressList from "./AddressList";
 import AddressForm from "./AddressForm";
 
 const StyledPageContainer = styled.div`
+  min-height: 100vh;
   background: #83a4d4; /* fallback for old browsers */
   background: -webkit-linear-gradient(
     to right,
@@ -18,12 +19,13 @@ const StyledPageContainer = styled.div`
     #b6fbff,
     #83a4d4
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  padding: 15px;
 `;
 
 const StyledAddressPage = styled.div`
-  margin: 10px;
+  margin-top: 10px;
   padding: 10px;
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.4);
   border-radius: 10px;
 `;
 
@@ -35,8 +37,8 @@ interface Props {
 
 const AddressPage: React.StatelessComponent<Props> = props => (
   <StyledPageContainer>
+    <MenuBar />
     <StyledAddressPage>
-      <MenuBar />
       <AddressList
         addresses={props.addresses}
         removeAddress={props.removeAddress}

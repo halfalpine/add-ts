@@ -1,6 +1,16 @@
 import * as React from "react";
+import styled from "styled-components";
 
 import { Entry } from "../models/model";
+
+const StyledEntryForm = styled.form`
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+`;
+
+const InputSection = styled.div`padding: 5px;`;
 
 interface Props {
   addAddress: (entry: Entry) => void;
@@ -57,8 +67,9 @@ class AddressForm extends React.Component<Props, State> {
   render() {
     const { firstName, lastName, nickName } = this.state;
     return (
-      <form onSubmit={this.handleSubmitForm}>
-        <div>
+      <StyledEntryForm onSubmit={this.handleSubmitForm}>
+        <h4>Create a new entry:</h4>
+        <InputSection>
           <label htmlFor="firstName">First Name: </label>
           <input
             type="text"
@@ -67,8 +78,8 @@ class AddressForm extends React.Component<Props, State> {
             value={firstName}
             onChange={this.handleInputChange}
           />
-        </div>
-        <div>
+        </InputSection>
+        <InputSection>
           <label htmlFor="lastName">Last Name: </label>
           <input
             type="text"
@@ -77,8 +88,8 @@ class AddressForm extends React.Component<Props, State> {
             value={lastName}
             onChange={this.handleInputChange}
           />
-        </div>
-        <div>
+        </InputSection>
+        <InputSection>
           <label htmlFor="nickName">Nickname: </label>
           <input
             type="text"
@@ -87,11 +98,11 @@ class AddressForm extends React.Component<Props, State> {
             value={nickName}
             onChange={this.handleInputChange}
           />
-        </div>
-        <div>
+        </InputSection>
+        <InputSection>
           <input type="submit" value="Submit" />
-        </div>
-      </form>
+        </InputSection>
+      </StyledEntryForm>
     );
   }
 }
