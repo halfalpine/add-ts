@@ -24,13 +24,22 @@ class AddressForm extends React.Component<Props, State> {
     this.handleSubmitForm = this.handleSubmitForm.bind(this);
   }
 
-  handleInputChange(e: any) {
-    console.log(e);
-    this.setState({ [e.target.name]: e.target.value });
+  handleInputChange(e: React.SyntheticEvent<HTMLInputElement>) {
+    interface Obj {
+      [key: string]: string;
+    }
+    let target = e.target as HTMLInputElement;
+    let stateObj = function(): Obj {
+      let obj = {};
+      obj[target.name] = target.value;
+      return obj;
+    };
+    this.setState(stateObj);
   }
 
-  handleSubmitForm(e: any) {
+  handleSubmitForm(e: React.FormEvent<HTMLFormElement>): void {
     e.preventDefault();
+
     const { firstName, lastName, nickName } = this.state;
     const entry = {
       firstName,
@@ -48,7 +57,7 @@ class AddressForm extends React.Component<Props, State> {
   render() {
     const { firstName, lastName, nickName } = this.state;
     return (
-      <form>
+      <form onSubmit={this.handleSubmitForm}>
         <div>
           <label htmlFor="firstName">First Name: </label>
           <input
@@ -80,7 +89,7 @@ class AddressForm extends React.Component<Props, State> {
           />
         </div>
         <div>
-          <button onClick={this.handleSubmitForm}>Submit</button>
+          <input type="submit" value="Submit" />
         </div>
       </form>
     );
